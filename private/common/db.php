@@ -24,8 +24,9 @@ function db_conn(){
 }
 
 // クエリ実行
-function db_query($dbh, $sql){
-  $smt = $dbh->query($sql);
+function db_query($dbh, $sql, $param=array()){
+  $smt = $dbh->prepare($sql);
+  $smt->execute($param);
   $res = $smt->fetchAll();
   // echo print_r($res, true);
   return $res;
@@ -33,5 +34,4 @@ function db_query($dbh, $sql){
 
 
 ?>
-
 

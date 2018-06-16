@@ -7,4 +7,6 @@ define("TEMPLATE_PATH", PRIVATE_PATH. "view/");
 define("MODEL_PATH", PRIVATE_PATH. "model/");
 define("SQL_PATH", MODEL_PATH. "sql/");
 
+define("SALT", "rl");
+
 ?>

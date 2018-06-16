@@ -9,9 +9,11 @@ class LoginSqlModel {
     $this->dbh = db_conn();
   }
 
-  function get_users(){
-    $sql = "select * from users";
-    return db_query($this->dbh, $sql);
+  function get_users($id){
+    // echo $id;
+    $sql = "select * from users where handle = ?;";
+    $param = array($id);
+    return db_query($this->dbh, $sql, $param);
   }
 
 }

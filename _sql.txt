@@ -1,22 +1,24 @@
-
-
-
 create table users(
   id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  user_id text unique,
-  user_sei text,
-  user_mei text,
-  password text,
-  del_flg int,
+  handle varchar(128) unique,
+  user_sei varchar(128),
+  user_mei varchar(128),
+  password varchar(128),
+  del_flg int default 0,
   upd_date datetime,
   crt_date datetime,
   del_fate datetime
 );
 
 create table blog_posts(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   user_id int,
   title text,
-  body text
+  body text,
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
 );
 
-insert into users(user_id, password, crt_date) values ('gomi', 'pass1234', now());
+insert into users(handle, password, crt_date) values ('gomi', 'xxj31ZMTZzkVA', now());
