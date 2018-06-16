@@ -19,7 +19,11 @@ class LoginModel {
     if($err == "1"){
       echo "error_check";
       $this->message = "ログインに失敗しました";
+    }else if($err == "2"){
+      echo "error_check";
+      $this->message = "ログインしてください。";
     }
+
   }
 
   function main(){
