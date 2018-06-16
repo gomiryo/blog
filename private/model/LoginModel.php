@@ -31,6 +31,21 @@ class LoginModel {
       header('location: ./login.php?err=1');
       exit();
     }
+
+    // crypt("password", '3r')
+    // echo "入力値：". crypt($this->pw, '3r'). "<br/>";
+    // echo "照合元：". $res[0]['password']. "<br/>";
+
+    if(crypt($this->pw, '3r') === $res[0]['password']){
+      session_start();
+      $_SESSION['status'] = 'login';
+      header('location: ./page.php');
+      exit();
+    }else{
+      header('location: ./login.php?err=1');
+      exit();
+    }
+
   }
 
 }
