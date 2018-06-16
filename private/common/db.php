@@ -26,7 +26,9 @@ function db_conn(){
 // クエリ実行
 function db_query($dbh, $sql, $param=array()){
   $smt = $dbh->prepare($sql);
+  //$smt = $dbh->prepare("test test");
   $smt->execute($param);
+  // echo $smt->errorInfo();
   $res = $smt->fetchAll();
   // echo print_r($res, true);
   return $res;

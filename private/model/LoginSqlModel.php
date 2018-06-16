@@ -13,7 +13,8 @@ class LoginSqlModel {
     // echo $id;
     $sql = "select * from users where handle = ?;";
     $param = array($id);
-    return db_query($this->dbh, $sql, $param);
+    $res = db_query($this->dbh, $sql, $param);
+    return $res;
   }
 
 }

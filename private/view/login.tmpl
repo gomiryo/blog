@@ -13,6 +13,11 @@
     PW<br>
     <input type="password" name="pw">
     <br>
+    <?php
+      if($obj->message != ""){
+        echo $obj->message;
+      }
+    ?>
     <br>
     <input type="submit" value="送信">
   </form>
