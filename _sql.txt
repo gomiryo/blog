@@ -1,0 +1,22 @@
+
+
+
+create table users(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  user_id text unique,
+  user_sei text,
+  user_mei text,
+  password text,
+  del_flg int,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+create table blog_posts(
+  user_id int,
+  title text,
+  body text
+);
+
+insert into users(user_id, password, crt_date) values ('gomi', 'pass1234', now());
