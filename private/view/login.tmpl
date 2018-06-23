@@ -2,24 +2,37 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./css/mui-0.9.39/css/mui.css" />
+  <script src="./css/mui-0.9.39/js/mui.min.js"></script>
   <title>ohitori-system | login</title>
 </head>
 <body>
-  <h1>ログイン</h1>
-  <form action="./login2.php" method="post">
-    ID<br>
-    <input type="text" name="id">
-    <br>
-    PW<br>
-    <input type="password" name="pw">
-    <br>
-    <?php
-      if($obj->message != ""){
-        echo $obj->message;
-      }
-    ?>
-    <br>
-    <input type="submit" value="送信">
-  </form>
+  <div class="mui-container-fluid">
+    <div class="mui-row">
+      <div class="mui-col-md-1"></div>
+      <div class="mui-col-md-10">
+        <h1>Login</h1>
+        <form action="./login2.php" method="post" class="mui-form">
+          <legend>Login</legend>
+          <div class="mui-textfield">
+          <input type="text" name="id" placeholder="ID">
+          </div>
+          <div class="mui-textfield">
+          <input type="text" name="pw" placeholder="PASSWORD">
+          </div>
+          <div class="mui--text-danger">
+          <?php
+            if($obj->message != ""){
+              echo $obj->message;
+            }
+          ?>
+          </div>
+          <br />
+          <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+        </form>
+      </div>
+      <div class="mui-col-md-1"></div>
+    </div>
+  </div>
 </body>
 </html>

@@ -14,13 +14,10 @@ class LoginModel {
   }
 
   function error_check(){
-    echo "error_check() start";
     $err = isset($_GET["err"]) ? $_GET["err"] : "";
     if($err == "1"){
-      echo "error_check";
       $this->message = "ログインに失敗しました";
     }else if($err == "2"){
-      echo "error_check";
       $this->message = "ログインしてください。";
     }
 
@@ -43,7 +40,7 @@ class LoginModel {
     if(crypt($this->pw, '3r') === $res[0]['password']){
       session_start();
       $_SESSION['status'] = 'login';
-      header('location: ./page.php');
+      header('location: ./page/page.php');
       exit();
     }else{
       header('location: ./login.php?err=1');

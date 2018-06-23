@@ -1,5 +1,5 @@
 <?php
-require("./global.php");
+require("../global.php");
 require(MODEL_PATH. "PageModel.php");
 
 session_start();
@@ -8,9 +8,8 @@ if( !isset($_SESSION['status']) ){
   exit;
 }
 
-
 $obj = new PageModel();
 $obj->main();
 
-require(TEMPLATE_PATH. "page.tmpl");
+require(TEMPLATE_PATH. "page/page.tmpl");
 ?>
