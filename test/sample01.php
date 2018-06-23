@@ -7,22 +7,41 @@ define("NIKU", "肉");
 class animal{
   // プロパティ
   var $hair = ""; // 毛
-  var $width = ""; // 幅
+  protected $width = ""; // 幅
   var $type = ""; // 性格
   var $height = ""; // 高さ
   var $nakigoe = "ギャース！"; // 鳴き声
-  private $status = "普通"; //状態
+  protected $status = "普通"; //状態
   var $name = "動物"; //名前
 
   // 食べるメソッド・関数
-  function taberu($val="食べ物"){
+  public function taberu($val="食べ物"){
     echo $this->name. "が". $val. "を食べた。";
   }
 
   // 鳴くメソッド
-  function naku(){
+  public function naku(){
     echo $this->name. "が". $this->nakigoe. "と鳴いた\n"; 
   }
+
+  // 状態を返す(ゲッター)
+  public function get_status(){
+    return $this->status;
+  }
+
+  // 状態を戻る(セッター)
+  public function set_status($val){
+    $this->status = $val;
+  }
+
+  protected function status_good(){
+    $this->status = "良い";
+  }
+
+  protected function status_bad(){
+    $this->status = "悪い";
+  }
+
 }
 
 // 熊クラス
@@ -31,8 +50,10 @@ class Kuma extends Animal{
   function taberu($val){
     if($val === "りんご"){
       echo $this->name. "は". $val. "を食べた\n";
+      $this->status_good();
     }else{
       echo $this->name. "は". $val. "を食べなかった\n";
+      $this->status_bad();
     }
   }
 
@@ -94,11 +115,12 @@ class Tama extends Neko{
 // オブジェクト化,インスタンス化
 $kuma = new Kuma();
 $kuma->naku();
-$kuma->status = "悪い";
-echo "熊の状態は".$kuma->status."\n";
 $kuma->taberu(RINGO);
+echo "状態は".$kuma->get_status()."\n";
 $kuma->taberu(SAKANA);
+echo "状態は".$kuma->get_status()."\n";
 $kuma->taberu(NIKU);
+echo "状態は".$kuma->get_status()."\n";
 
 $neko = new Neko();
 $neko->naku();
