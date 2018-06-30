@@ -21,4 +21,28 @@ create table blog_posts(
   del_fate datetime
 );
 
-insert into users(handle, password, crt_date) values ('gomi', 'xxj31ZMTZzkVA', now());
+--ブログ記事
+insert into blog_posts(
+  user_id
+  , title
+  , body
+  , crt_date
+) values (
+  1
+  , 'today is fine.'
+  , 'hello. is very enjoy.'
+  , now()
+);
+
+insert into blog_posts(
+  user_id
+  , title
+  , body
+  , crt_date
+) values (
+  1
+  , 'today is lain.'
+  , 'hello. today is not bad.'
+  , now()
+);
+
