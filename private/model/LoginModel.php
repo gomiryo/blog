@@ -27,6 +27,7 @@ class LoginModel {
     $obj = new LoginSqlModel();
     $res = $obj->get_users($this->id);
     // echo print_r($res, true);
+    // exit();
     if(count($res) === 0){
       header('location: ./login.php?err=1');
       exit();
