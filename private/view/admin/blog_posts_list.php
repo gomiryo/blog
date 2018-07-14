@@ -19,6 +19,7 @@
       <th>操作</tr>
     </tr>
 
+    <? foreach($obj->blog as $val): ?>
     <tr>
       <td>001</td>
       <td>記事１</td>
@@ -27,16 +28,7 @@
       <td>2018/08/08 14:14:14</td>
       <td><button type="button" style="height:30px; width:60px; font-size:18px;">編集</button>｜<button type="button" style="height:30px; width:60px; font-size:18px;" >削除</button></td>
     </tr>
-
-    <tr>
-      <td>002</td>
-      <td>記事３</td>
-      <td>本文かきくけこ</td>
-      <td>2018/06/09 12:12:12</td>
-      <td>2018/08/08 14:14:14</td>
-      <td><button type="button" style="height:30px; width:60px; font-size:18px;">編集</button>｜<button type="button" style="height:30px; width:60px; font-size:18px;" >削除</button></td>
-    </tr>
-
+    <? endforeach; ?>
   </table>
   
 </body>

@@ -45,24 +45,27 @@ class BlogPostsSqlModel {
 
   // ブログ記事を作成
   function setBlogPosts(){
-    // var_dump($_SESSION);
+    $user_id = $_SESSION["user_id"];
+    $title = $_POST["title"];
+    $body = $_POST["body"];
 
-/*
     $sql  = " insert into blog_posts ";
-    $sql .= " (title, body, user_id ) ";
-    $sql .= " limit :start, :end; ";
-    $stmt = $this->dbh->prepare($sql);
-    $stmt->bindValue(':start', $start, PDO::PARAM_INT);
-    $stmt->bindValue(':end', $end, PDO::PARAM_INT);
-    $stmt->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-*/
-    // var_dump($res);
+    $sql .= " (title, body, user_id, crt_date) values ";
+    $sql .= " (:title, :body, :user_id, now() ) ";
 
+    $stmt = $this->dbh->prepare($sql);
+
+    $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+    $stmt->bindParam(':body', $body, PDO::PARAM_STR);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+
+    $stmt->execute();
+    //var_dump($res);
     //$param = array($start, $end);
     //$param = array(10);
     //$res = db_query($this->dbh, $sql, $param);
-    return $res;
+
+    return 0;
    
   }
 
