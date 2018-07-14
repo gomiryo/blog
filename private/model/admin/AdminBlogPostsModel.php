@@ -5,6 +5,7 @@ require_once(MODEL_PATH. "BlogPostsSqlModel.php");
 
 class AdminBlogPostsModel{
   var $mode = "";
+
   function main(){
     $this->mode = isset($_POST["mode"]) ? $_POST["mode"] : "none";
 
@@ -25,9 +26,12 @@ class AdminBlogPostsModel{
 
   // 新規作成
   function setBlogPosts(){
-    echo "setBlogPosts() start";
-    exit();
-  } 
+    // echo "setBlogPosts() start";
+    $obj = new BlogPostsSqlModel();
+    $obj->setBlogPosts();
+
+  }
+
   // 削除
   function delBlogPosts(){
     echo "setBlogPosts() start";

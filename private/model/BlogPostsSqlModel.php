@@ -18,6 +18,7 @@ class BlogPostsSqlModel {
 
   // ブログ記事データの取得
   function get_blog_posts($start, $end){
+
     $sql  = " select ";
     $sql .= " blog_posts.title, ";
     $sql .= " blog_posts.body, ";
@@ -40,6 +41,29 @@ class BlogPostsSqlModel {
     //$param = array(10);
     //$res = db_query($this->dbh, $sql, $param);
     return $res;
+  }
+
+  // ブログ記事を作成
+  function setBlogPosts(){
+    // var_dump($_SESSION);
+
+/*
+    $sql  = " insert into blog_posts ";
+    $sql .= " (title, body, user_id ) ";
+    $sql .= " limit :start, :end; ";
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindValue(':start', $start, PDO::PARAM_INT);
+    $stmt->bindValue(':end', $end, PDO::PARAM_INT);
+    $stmt->execute();
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+*/
+    // var_dump($res);
+
+    //$param = array($start, $end);
+    //$param = array(10);
+    //$res = db_query($this->dbh, $sql, $param);
+    return $res;
+   
   }
 
 }
