@@ -69,6 +69,28 @@ class BlogPostsSqlModel {
    
   }
 
+  // ブログ記事を削除
+  function delBlogPosts(){
+    cLog(print_r($_GET, true));
+    $id = $_GET['id'];
+
+    $sql  = " delete from blog_posts ";
+    $sql .= " where id = :id ";
+
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+    $stmt->execute();
+    //var_dump($res);
+    //$param = array($start, $end);
+    //$param = array(10);
+    //$res = db_query($this->dbh, $sql, $param);
+
+    return 0;
+   
+  }
+
+
 }
 
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 require_once(MODEL_PATH. "BaseModel.php");
 require_once(MODEL_PATH. "BlogPostsSqlModel.php");
 
@@ -12,21 +11,17 @@ class AdminBlogPostsModel{
   function main(){
     $this->mode = isset($_POST["mode"]) ? $_POST["mode"] : "none";
 
-    $this->getBlogPostLists();
-
     switch($this->mode){
       case "new":
         $this->setBlogPosts();
         break;
-      case "del":
-        $this->delBlogPosts();
-        break;
       case "upd":
         $this->delBlogPosts();
         break;
-      default:
-        return 0;
     }
+
+    // 一覧取得
+    $this->getBlogPostLists();
   }
 
   // 一覧取得
@@ -60,7 +55,12 @@ class AdminBlogPostsModel{
 
   // 削除
   function delBlogPosts(){
-    echo "setBlogPosts() start";
+    $obj = new BlogPostsSqlModel();
+    $obj->delBlogPosts();
+
+    header('content-type: application/json; charset=utf-8');
+    echo '{"data":"ok"}';
+    exit;
   }
 
   // 更新

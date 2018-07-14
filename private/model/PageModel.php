@@ -27,6 +27,7 @@ class PageModel{
     $page_num = $obj->get_blog_count();
 
     $this->pagination = ceil($page_num / self::MAX_PAGE);
+
   }
 
 }

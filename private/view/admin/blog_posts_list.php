@@ -2,8 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="./css/mui-0.9.39/css/mui.css" />
-  <script src="./css/mui-0.9.39/js/mui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/mui-0.9.39/css/mui.css" />
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../css/mui-0.9.39/js/mui.min.js"></script>
+  <script src="../js/admin/blog_posts_list.js"></script>
   <title>管理画面</title>
 </head>
 <body style="background-color:#efe; color:999; font-size:20px;">
@@ -21,15 +23,19 @@
 
     <? foreach($obj->blog as $val): ?>
     <tr>
-      <td>001</td>
-      <td>記事１</td>
-      <td>本文アイウエオ</td>
-      <td>2018/06/09 12:12:12</td>
-      <td>2018/08/08 14:14:14</td>
-      <td><button type="button" style="height:30px; width:60px; font-size:18px;">編集</button>｜<button type="button" style="height:30px; width:60px; font-size:18px;" >削除</button></td>
+      <td><?=$val["blog_id"]?></td>
+      <td><?=$val["title"]?></td>
+      <td><?=$val["body"]?></td>
+      <td><?=$val["crt_date"]?></td>
+      <td><?=$val["upd_date"]?></td>
+      <td><button type="button" style="height:30px; width:60px; font-size:18px;" onClick="blog_posts_edit(<?=$val["blog_id"]?>)">編集</button>｜<button type="button" style="height:30px; width:60px; font-size:18px;" onClick="blog_posts_delete(<?=$val["blog_id"]?>)">削除</button></td>
     </tr>
     <? endforeach; ?>
   </table>
-  
+
+  <?php for ($x=1; $x <= $obj->pagination ; $x++) { ?>
+    <a href="?page=<?php echo $x ?>"><?php echo $x; ?></a>
+  <?php } // End of for ?>
+
 </body>
 </html>
