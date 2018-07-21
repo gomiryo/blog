@@ -42,7 +42,7 @@ class LoginModel {
       session_start();
       $_SESSION['status'] = 'login';
       $_SESSION['user_id'] = $res[0]['id'];
-      header('location: ./page/page.php');
+      header('location: ./admin/index.php');
       exit();
     }else{
       header('location: ./login.php?err=1');

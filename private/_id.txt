@@ -7,7 +7,7 @@ mysql -u user04 -pUser04@Pass
 
 #git upload
 git add --all
-git commit -a -m "ver 0.2.2"
+git commit -a -m "ver 0.5"
 git push origin master
 
 

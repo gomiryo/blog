@@ -4,6 +4,10 @@ create table users(
   user_sei varchar(128),
   user_mei varchar(128),
   password varchar(128),
+  mailaddress varchar(128),
+  url_hash varchar(128),
+  url_hash_act_date datetime,
+  act_flg int default 0,
   del_flg int default 0,
   upd_date datetime,
   crt_date datetime,
@@ -13,12 +17,68 @@ create table users(
 create table blog_posts(
   id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   user_id int,
+  category_id int,
   title text,
   body text,
+  st_good text,
+  st_bad text,
   del_flg int default 0,
   upd_date datetime,
   crt_date datetime,
   del_fate datetime
+);
+
+create table blog_commnets(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  body text,
+  ip_address text,
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+create table info_posts(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  user_id int,
+  title text,
+  body text,
+  act_flg int default 0,
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+create table m_category(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  category_name text,
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+create table t_goody_logs(
+  blog_id int,
+  types text,
+  ip_address varchar(128),
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime,
+  unique(blog_id, ip_address)
+);
+
+--ユーザ作成
+insert into users(
+  handle,
+  password,
+  act_flg
+) values (
+  'gomi',
+  '3rwpKJjxq.Bh2',
+  1
 );
 
 --ブログ記事

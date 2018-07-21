@@ -12,7 +12,8 @@
     <li>
       ブログ関連
       <ul>
-        <li><a href="./blog_posts_list.php">記事管理</a></li>
+        <li><a href="/blog/admin/blog_posts_list.php">記事管理</a></li>
+        <li><a href="#">おしらせ管理</a></li>
         <li><a href="#">カテゴリ管理</a></li>
       </ul>
     </li>
@@ -20,6 +21,14 @@
       ユーザ管理
       <ul>
         <li><a href="#">ユーザ情報管理</a></li>
+      </ul>
+    </li>
+    <li>
+      ブログ
+      <ul>
+        <li>
+          <a href="/blog/page/page.php">トップページ</a>
+        </li>
       </ul>
     </li>
   </ul>
